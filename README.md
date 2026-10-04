@@ -4,6 +4,15 @@ AWS configuration monitoring with a local dashboard, scan history, and security-
 
 DriftWatch uses a dedicated read-only IAM role to inspect AWS security groups and identify unrestricted inbound SSH/RDP access.
 
+## Architecture
+
+![AWS DriftWatch architecture](docs/screenshots/aws-driftwatch-architecture.png)
+
+The local scanner assumes a dedicated read-only IAM role, retrieves
+security-group configuration and network-interface associations, and
+saves timestamped JSON reports. The Streamlit dashboard reads these
+reports to display inventory, findings, and scan history.
+
 ## Current Features
 
 - Security-group inventory for a selected AWS account and region.
